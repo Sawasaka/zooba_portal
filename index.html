@@ -825,28 +825,56 @@
 
   <!-- ===== 全体 TAB ===== -->
   <div id="tab-all" class="tab-panel active">
-    <div class="section-label">Monthly Overview</div>
-    <div class="monthly-row header-row">
-      <div>期間</div>
-      <div>有効商談数</div>
-      <div>フェーズ昇格</div>
-      <div>POC確定</div>
-      <div>進捗</div>
+
+    <!-- KPI FLOW (全体・合算) -->
+    <div class="section-label">Key Performance Indicators — 全期間合算</div>
+    <div class="kpi-flow">
+      <div class="kpi-card">
+        <div class="kpi-label">有効商談数</div>
+        <div class="kpi-value">7<span>社</span></div>
+        <div class="kpi-sub">フェーズ03 認定済み商談の総数</div>
+      </div>
+      <div class="kpi-arrow">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M6 14h16M16 8l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="kpi-arrow-label">昇格</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">フェーズ 2 → 3 昇格</div>
+        <div class="kpi-value">7<span>社</span></div>
+        <div class="kpi-sub">累計 Phase 2 からの昇格件数</div>
+      </div>
+      <div class="kpi-arrow">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M6 14h16M16 8l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="kpi-arrow-label">最前線</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">POC 実行確定</div>
+        <div class="kpi-value">1<span>社</span></div>
+        <div class="kpi-sub">累計 POC 確定案件</div>
+        <div class="kpi-tooltip">
+          <div class="tooltip-label">対象企業</div>
+          <div class="tooltip-row">ポールトゥウィン株式会社</div>
+        </div>
+      </div>
     </div>
-    <div class="monthly-row">
-      <div class="month-label">2026年3月<span class="month-badge">最新</span></div>
-      <div class="month-stat">7<span>社</span></div>
-      <div class="month-stat">7<span>社</span></div>
-      <div class="month-stat">1<span>社</span></div>
-      <div><div class="month-bar-wrap"><div class="month-bar-fill" style="width:100%"></div></div></div>
+
+    <!-- DEALS TABLE (全体) -->
+    <div class="deals-section">
+      <div class="section-label">Pipeline Detail — 全件</div>
+      <table class="deals-table">
+        <thead><tr><th>#</th><th>企業名 / 担当</th><th>ステータス</th><th>進捗・備考</th></tr></thead>
+        <tbody>
+          <tr><td><span class="deal-no">01</span></td><td><div class="deal-company">フューチャーセキュアウェイブ株式会社</div><div class="deal-members">名和 / 菊池 / 沢坂</div></td><td><span class="status-badge status-setup">セットアップ完了・検証中</span></td><td><div class="deal-note">2回目商談完了済み。現在セットアップ完了し検証フェーズに移行中。</div></td></tr>
+          <tr><td><span class="deal-no">02</span></td><td><div class="deal-company">フォーティエンスコンサルティング株式会社</div><div class="deal-members">名和 / 沢坂 / 菊池</div></td><td><span class="status-badge status-adjust">2回目商談調整中</span></td><td><div class="deal-note">2回目の商談意向を獲得。現在、社内にて提案内容を調整中。</div></td></tr>
+          <tr><td><span class="deal-no">03</span></td><td><div class="deal-company">ポールトゥウィン株式会社</div><div class="deal-members">井之上 / 沢坂</div></td><td><span class="status-badge status-poc">POC検討中</span></td><td><div class="deal-note">部門ごとの閲覧制限機能がマスト対応。機能クリアでPOCに前向きな意向を獲得済み。</div></td></tr>
+          <tr><td><span class="deal-no">04</span></td><td><div class="deal-company">サンテミナ株式会社</div><div class="deal-members">井之上 / 沢坂</div></td><td><span class="status-badge status-trial">トライアルセットアップ中</span></td><td><div class="deal-note">無料トライアル導入意向確認済み。日程調整中。<span class="warning">⚠ Chatwork連携による機能要件未達の可能性あり。</span></div></td></tr>
+          <tr><td><span class="deal-no">05</span></td><td><div class="deal-company">豊田スチールセンター株式会社</div><div class="deal-members">新海 / 沢坂</div></td><td><span class="status-badge status-intent">トライアル意向獲得済</span></td><td><div class="deal-note">親会社からグローバル権限の獲得とアプリインストール操作の2点について社内調整中。</div></td></tr>
+          <tr><td><span class="deal-no">06</span></td><td><div class="deal-company">株式会社MTG</div><div class="deal-members">名和 / 沢坂</div></td><td><span class="status-badge status-rfp">RFP対応中</span></td><td><div class="deal-note">3月分。RFP要求に基づき対応中。</div></td></tr>
+          <tr><td><span class="deal-no">07</span></td><td><div class="deal-company">ユニソルホールディングス</div><div class="deal-members">沢坂</div></td><td><span class="status-badge status-confirm">トライアル意向確認済</span></td><td><div class="deal-note">無料トライアルの意向確認済み。現在価格調整中。</div></td></tr>
+        </tbody>
+      </table>
     </div>
-    <div class="monthly-row">
-      <div class="month-label">2026年4月</div>
-      <div class="month-stat empty">—</div>
-      <div class="month-stat empty">—</div>
-      <div class="month-stat empty">—</div>
-      <div><div class="month-bar-wrap"><div class="month-bar-fill" style="width:0%"></div></div></div>
-    </div>
+
   </div>
 
   <!-- ===== 3月 TAB ===== -->
