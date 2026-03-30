@@ -547,85 +547,52 @@
     display: inline;
   }
 
-  /* ── HANDOVER / ACTIONS ── */
-  .handover-grid {
+  /* ── INSIGHT GRID ── */
+  .insight-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    gap: 16px;
     margin-bottom: 40px;
   }
 
-  .handover-card {
+  .insight-card {
     background: var(--navy-card);
     border: 1px solid rgba(255,255,255,0.06);
     border-radius: 6px;
-    padding: 24px;
-  }
-
-  .handover-card.full-width {
-    grid-column: 1 / -1;
-  }
-
-  .handover-card-title {
-    font-size: 11px;
-    letter-spacing: 0.14em;
-    color: var(--gold);
-    text-transform: uppercase;
-    margin-bottom: 16px;
+    padding: 20px 22px;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     gap: 8px;
   }
 
-  .issue-block {
-    background: rgba(231,76,60,0.08);
-    border-left: 3px solid #E74C3C;
-    border-radius: 0 4px 4px 0;
-    padding: 12px 16px;
-    font-size: 13px;
-    color: var(--text-primary);
+  .insight-card.full-width {
+    grid-column: 1 / -1;
+    border-color: rgba(46,204,113,0.2);
+    background: rgba(46,204,113,0.04);
   }
 
-  .action-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  .insight-label {
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 700;
   }
 
-  .action-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
+  .insight-card:nth-child(1) .insight-label { color: var(--text-muted); }
+  .insight-card:nth-child(2) .insight-label { color: rgba(231,76,60,0.7); }
+  .insight-card:nth-child(3) .insight-label { color: #5B8DB8; }
+  .insight-card.full-width   .insight-label { color: #2ECC71; }
+
+  .insight-text {
     font-size: 13px;
     color: var(--text-secondary);
-    line-height: 1.5;
+    line-height: 1.65;
   }
 
-  .action-num {
-    width: 22px;
-    height: 22px;
-    background: var(--gold-dim);
-    border: 1px solid var(--gold-border);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 10px;
-    font-weight: 700;
-    color: var(--gold);
-    flex-shrink: 0;
-    margin-top: 1px;
-  }
-
-  .effect-block {
-    background: rgba(46,204,113,0.08);
-    border-left: 3px solid #2ECC71;
-    border-radius: 0 4px 4px 0;
-    padding: 12px 16px;
-    font-size: 13px;
-    color: var(--text-primary);
-  }
+  .insight-card:nth-child(1) { border-left: 3px solid rgba(255,255,255,0.1); }
+  .insight-card:nth-child(2) { border-left: 3px solid rgba(231,76,60,0.4); }
+  .insight-card:nth-child(3) { border-left: 3px solid rgba(91,141,184,0.4); }
+  .insight-card.full-width   { border-left: 3px solid rgba(46,204,113,0.5); }
 
   /* ── PHASE CONDITIONS ── */
   .phase-grid {
@@ -1332,37 +1299,24 @@
     </table>
   </div>
 
-  <!-- HANDOVER -->
+  <!-- INSIGHT -->
   <div class="section-label">考察と仮説</div>
-  <div class="handover-grid">
-    <div class="handover-card">
-      <div class="handover-card-title">現状課題</div>
-      <div class="issue-block">
-        トライアル工数課題により、PoCフェーズでの<strong>離脱</strong>が発生しています。
-      </div>
+  <div class="insight-grid">
+    <div class="insight-card">
+      <div class="insight-label">現状</div>
+      <div class="insight-text">商談開始からの期間がまだ短く、各社との関係は初期フェーズにある</div>
     </div>
-    <div class="handover-card">
-      <div class="handover-card-title">期待効果</div>
-      <div class="effect-block">
-        トライアル実施への確率上昇見込み + <strong>成約率の向上</strong>が期待されます。
-      </div>
+    <div class="insight-card">
+      <div class="insight-label">影響</div>
+      <div class="insight-text">成果を定量的に判断するためのデータが十分に蓄積されていない状態</div>
     </div>
-    <div class="handover-card full-width">
-      <div class="handover-card-title">解決アクション</div>
-      <ul class="action-list">
-        <li>
-          <span class="action-num">1</span>
-          <span>申し込みフォームを<strong>撤廃</strong>し、エントリー障壁を除去する</span>
-        </li>
-        <li>
-          <span class="action-num">2</span>
-          <span><strong>オンデマンドアカウント開設</strong>またはダイレクトリンク共有によるスムーズな導入フローに移行</span>
-        </li>
-        <li>
-          <span class="action-num">3</span>
-          <span><strong>営業セットアップサポート</strong>を提供し、顧客側の工数負担を最小化</span>
-        </li>
-      </ul>
+    <div class="insight-card">
+      <div class="insight-label">仮説</div>
+      <div class="insight-text">7社中4社がPJ可能案件以上に到達しており、初動フェーズとしてはベストパフォーマンスと判断できる</div>
+    </div>
+    <div class="insight-card full-width">
+      <div class="insight-label">結論</div>
+      <div class="insight-text">POC案件の受注成果が確認でき次第、販売体制の本格的な構築フェーズへの移行を検討する</div>
     </div>
   </div>
 
