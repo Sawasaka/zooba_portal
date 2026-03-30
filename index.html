@@ -365,6 +365,27 @@
   }
 
   .kpi-card:nth-child(5) .tooltip-row { border-color: rgba(46,204,113,0.5); color: #2ECC71; }
+  .kpi-card:nth-child(7) .tooltip-row { border-color: rgba(46,204,113,0.5); color: #2ECC71; }
+
+  /* 認定条件 */
+  .kpi-cond {
+    margin-top: 10px;
+    padding-top: 9px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    font-size: 10px;
+    color: var(--text-muted);
+    letter-spacing: 0.04em;
+    line-height: 1.6;
+  }
+
+  .kpi-cond-title {
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    color: var(--text-muted);
+    opacity: 0.7;
+  }
 
   /* ── DEALS TABLE ── */
   .deals-section {
@@ -1038,6 +1059,7 @@
         <div class="kpi-label" style="color:var(--gold);font-weight:700;font-size:11px;">有効商談数</div>
         <div class="kpi-value">7<span>社</span></div>
         <div class="kpi-sub">フェーズ03 認定済み商談の総数</div>
+        <div class="kpi-cond"><div class="kpi-cond-title">認定条件</div>担当部門 / 課題検討中 / 時期感あり<br>2回目アポ or トライアル意向</div>
       </div>
       <div class="kpi-arrow">
         <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M6 14h16M16 8l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -1047,11 +1069,23 @@
         <div class="kpi-label" style="color:#85C1E9;font-weight:700;font-size:11px;">フェーズ 2 → 3 昇格</div>
         <div class="kpi-value" style="color:#85C1E9;">7<span>社</span></div>
         <div class="kpi-sub">今期 Phase 2 からの昇格件数</div>
-        <div class="kpi-breakdown">
-          <div class="kpi-breakdown-row">
-            <span class="kpi-breakdown-label">うちPJ可能案件（フェーズ4）</span>
-            <span class="kpi-breakdown-val">0社</span>
-          </div>
+        <div class="kpi-cond"><div class="kpi-cond-title">認定条件</div>2回目以降のアポ確定<br>or トライアル意向あり</div>
+      </div>
+      <div class="kpi-arrow">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M6 14h16M16 8l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="kpi-arrow-label">PJ化</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label" style="color:#5B8DB8;font-weight:700;font-size:11px;">フェーズ 4 到達</div>
+        <div class="kpi-value" style="color:#5B8DB8;">4<span>社</span></div>
+        <div class="kpi-sub">PJ可能案件（社内障壁クリア）</div>
+        <div class="kpi-cond"><div class="kpi-cond-title">認定条件</div>上長の社内推進<br>及び 社内障壁のクリア</div>
+        <div class="kpi-tooltip">
+          <div class="tooltip-label">対象企業 — 4社</div>
+          <div class="tooltip-row">フォーティエンスコンサルティング株式会社</div>
+          <div class="tooltip-row">フューチャーセキュアウェイブ株式会社</div>
+          <div class="tooltip-row">サンテミナ株式会社</div>
+          <div class="tooltip-row">ユニソルホールディングス</div>
         </div>
       </div>
       <div class="kpi-arrow">
@@ -1062,6 +1096,7 @@
         <div class="kpi-label" style="color:#2ECC71;font-weight:700;font-size:11px;">フェーズ 5 到達</div>
         <div class="kpi-value" style="color:#2ECC71;">1<span>社</span></div>
         <div class="kpi-sub">POC / 2回目商談以降 到達件数</div>
+        <div class="kpi-cond"><div class="kpi-cond-title">認定条件</div>POC実施確定<br>or 2回目商談以降に移行</div>
         <div class="kpi-tooltip">
           <div class="tooltip-label">対象企業</div>
           <div class="tooltip-row">フューチャーセキュアウェイブ株式会社</div>
@@ -1099,6 +1134,7 @@
       <div class="kpi-label" style="color:var(--gold);font-weight:700;font-size:11px;">有効商談数</div>
       <div class="kpi-value">7<span>社</span></div>
       <div class="kpi-sub">フェーズ03 認定済み商談の総数</div>
+      <div class="kpi-cond"><div class="kpi-cond-title">認定条件</div>担当部門 / 課題検討中 / 時期感あり<br>2回目アポ or トライアル意向</div>
     </div>
 
     <div class="kpi-arrow">
@@ -1112,11 +1148,27 @@
       <div class="kpi-label" style="color:#85C1E9;font-weight:700;font-size:11px;">フェーズ 2 → 3 昇格</div>
       <div class="kpi-value" style="color:#85C1E9;">7<span>社</span></div>
       <div class="kpi-sub">今期 Phase 2 からの昇格件数</div>
-      <div class="kpi-breakdown">
-        <div class="kpi-breakdown-row">
-          <span class="kpi-breakdown-label">うちPJ可能案件（フェーズ4）</span>
-          <span class="kpi-breakdown-val">0社</span>
-        </div>
+      <div class="kpi-cond"><div class="kpi-cond-title">認定条件</div>2回目以降のアポ確定<br>or トライアル意向あり</div>
+    </div>
+
+    <div class="kpi-arrow">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+        <path d="M6 14h16M16 8l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <div class="kpi-arrow-label">PJ化</div>
+    </div>
+
+    <div class="kpi-card">
+      <div class="kpi-label" style="color:#5B8DB8;font-weight:700;font-size:11px;">フェーズ 4 到達</div>
+      <div class="kpi-value" style="color:#5B8DB8;">4<span>社</span></div>
+      <div class="kpi-sub">PJ可能案件（社内障壁クリア）</div>
+      <div class="kpi-cond"><div class="kpi-cond-title">認定条件</div>上長の社内推進<br>及び 社内障壁のクリア</div>
+      <div class="kpi-tooltip">
+        <div class="tooltip-label">対象企業 — 4社</div>
+        <div class="tooltip-row">フォーティエンスコンサルティング株式会社</div>
+        <div class="tooltip-row">フューチャーセキュアウェイブ株式会社</div>
+        <div class="tooltip-row">サンテミナ株式会社</div>
+        <div class="tooltip-row">ユニソルホールディングス</div>
       </div>
     </div>
 
@@ -1131,6 +1183,7 @@
       <div class="kpi-label" style="color:#2ECC71;font-weight:700;font-size:11px;">フェーズ 5 到達</div>
       <div class="kpi-value" style="color:#2ECC71;">1<span>社</span></div>
       <div class="kpi-sub">POC / 2回目商談以降 到達件数</div>
+      <div class="kpi-cond"><div class="kpi-cond-title">認定条件</div>POC実施確定<br>or 2回目商談以降に移行</div>
       <div class="kpi-tooltip">
         <div class="tooltip-label">対象企業</div>
         <div class="tooltip-row">フューチャーセキュアウェイブ株式会社</div>
