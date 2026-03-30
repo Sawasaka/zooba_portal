@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zooba 新規事業提案</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Noto+Sans+JP:wght@300;400;700;900&display=swap');
+
+:root {
+  --bg:      #0b0f1c;
+  --s1:      rgba(255,255,255,.055);
+  --b1:      rgba(255,255,255,.09);
+  --b2:      rgba(255,255,255,.16);
+  --gold:    #dbb84e;
+  --gold-bg: rgba(219,184,78,.12);
+  --gold-bd: rgba(219,184,78,.30);
+  --blue:    #5b9cf6;
+  --blue-bg: rgba(91,156,246,.12);
+  --blue-bd: rgba(91,156,246,.30);
+  --text:    #ffffff;
+  --sub:     rgba(255,255,255,.75);
+  --dim:     rgba(255,255,255,.50);
+  --mono:    'DM Mono', monospace;
+  --sans:    'Noto Sans JP', sans-serif;
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html, body { height:100%; overflow:hidden; -webkit-font-smoothing:antialiased; }
+
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text);
+  height: 100svh;
+  display: grid;
+  grid-template-rows: 44px 64px 1fr 120px 36px;
+}
+
+/* ── BG ── */
+body::before {
+  content:''; position:fixed; inset:0; z-index:0; pointer-events:none;
+  background:
+    radial-gradient(ellipse 55% 70% at 0% 55%,   rgba(219,184,78,.13)  0%, transparent 55%),
+    radial-gradient(ellipse 55% 70% at 100% 45%,  rgba(91,156,246,.12)  0%, transparent 55%),
+    radial-gradient(ellipse 40% 30% at 50% 100%, rgba(91,156,246,.07)  0%, transparent 50%);
+}
+/* dot grid */
+body::after {
+  content:''; position:fixed; inset:0; z-index:0; pointer-events:none;
+  background-image: radial-gradient(rgba(255,255,255,.05) 1px, transparent 1px);
+  background-size: 36px 36px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
+}
+body > * { position:relative; z-index:1; }
+
+/* ════════ HEADER ════════ */
+header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 52px;
+  border-bottom: 1px solid var(--b1);
+}
+.brand {
+  font-family: var(--mono);
+  font-size: 13px; font-weight: 500; letter-spacing: .2em;
+  color: var(--text);
+}
+.brand em { font-style:normal; color: var(--blue); }
+.hd-r { font-family: var(--mono); font-size: 10px; color: var(--dim); letter-spacing:.08em; }
+
+/* ════════ TITLE ════════ */
+.title {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 52px;
+  border-bottom: 1px solid var(--b1);
+}
+.title h1 {
+  font-size: clamp(18px, 2.4vw, 26px);
+  font-weight: 900; letter-spacing:-.02em; line-height:1;
+  color: var(--text);
+}
+.title h1 span { color: var(--blue); }
+.title-note {
+  font-family: var(--mono);
+  font-size: 10px; color: var(--dim); letter-spacing:.06em;
+  text-align: right; line-height: 1.6;
+}
+
+/* ════════ DIAGRAM ════════ */
+.diagram {
+  display: grid;
+  grid-template-columns: 1fr 52px 1fr;
+  padding: 20px 52px;
+  gap: 0;
+}
+
+/* Column */
+.col {
+  display: grid;
+  grid-template-rows: 28px repeat(4, 1fr);
+  gap: 8px;
+}
+
+/* Column head */
+.col-head {
+  display: flex; align-items: center; gap: 8px;
+}
+.col-tag {
+  font-family: var(--mono);
+  font-size: 9px; font-weight: 500; letter-spacing: .18em;
+  text-transform: uppercase;
+  padding: 3px 10px; border-radius: 3px;
+}
+.col-tag-gold { background: var(--gold-bg); border: 1px solid var(--gold-bd); color: var(--gold); }
+.col-tag-blue { background: var(--blue-bg); border: 1px solid var(--blue-bd); color: var(--blue); }
+.col-ref { font-family: var(--mono); font-size: 9px; color: var(--dim); letter-spacing:.04em; }
+
+/* Card */
+.card {
+  border-radius: 10px;
+  display: flex; align-items: center; gap: 16px;
+  padding: 0 20px;
+  border: 1px solid var(--b1);
+  background: var(--s1);
+  transition: background .2s, border-color .2s;
+}
+.card:hover { background: rgba(255,255,255,.09); border-color: var(--b2); }
+
+.card-gold { border-left: 2px solid var(--gold); background: var(--gold-bg); }
+.card-gold:hover { background: rgba(219,184,78,.16); }
+.card-blue { border-left: 2px solid var(--blue); background: var(--blue-bg); }
+.card-blue:hover { background: rgba(91,156,246,.18); }
+
+.num {
+  font-family: var(--mono);
+  font-size: 28px; font-weight: 400; line-height: 1;
+  flex-shrink: 0; width: 36px;
+}
+.num-gold { color: rgba(219,184,78,.38); }
+.num-blue { color: rgba(91,156,246,.38); }
+
+.ci {
+  width: 36px; height: 36px; border-radius: 9px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.ci svg { width: 18px; height: 18px; }
+.card-gold .ci { background: rgba(219,184,78,.14); }
+.card-blue .ci { background: rgba(91,156,246,.14); }
+
+.card-inner {}
+.phase {
+  font-family: var(--mono);
+  font-size: 10px; font-weight: 500; letter-spacing: .12em;
+  text-transform: uppercase; margin-bottom: 5px;
+  opacity: .85;
+}
+.phase-gold { color: var(--gold); }
+.phase-blue { color: var(--blue); }
+
+.card-title {
+  font-size: 16px; font-weight: 700;
+  color: #fff; line-height: 1.15; letter-spacing: -.01em;
+}
+
+/* ── Bridge ── */
+.bridge {
+  display: grid;
+  grid-template-rows: 28px repeat(4, 1fr);
+  gap: 8px;
+  align-items: stretch;
+}
+.bridge-spacer {}
+.bridge-row {
+  display: flex; align-items: center; justify-content: center;
+  position: relative;
+}
+.bridge-row::before {
+  content: ''; position: absolute; left:0; right:0; height:1px;
+  background: linear-gradient(90deg,
+    rgba(219,184,78,.35), rgba(255,255,255,.18), rgba(91,156,246,.35)
+  );
+}
+.bridge-dot {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: #12192e;
+  border: 1px solid rgba(91,156,246,.45);
+  display: flex; align-items: center; justify-content: center;
+  position: relative; z-index: 1;
+  font-family: var(--mono); font-size: 14px; font-weight: 500;
+  color: var(--blue);
+  transition: border-color .3s, color .3s;
+  animation: blink 3.5s ease-in-out infinite;
+  box-shadow: 0 0 10px rgba(91,156,246,.2);
+}
+.bridge-dot:nth-child(1){ animation-delay: 0s; }
+.bridge-dot:nth-child(1){ animation-delay: 0s; }
+.bridge-row:nth-child(2) .bridge-dot{ animation-delay: 0s; }
+.bridge-row:nth-child(3) .bridge-dot{ animation-delay: .9s; }
+.bridge-row:nth-child(4) .bridge-dot{ animation-delay: 1.8s; }
+.bridge-row:nth-child(5) .bridge-dot{ animation-delay: 2.7s; }
+
+@keyframes blink {
+  0%,100% { border-color: rgba(91,156,246,.35); color: var(--blue); box-shadow: 0 0 8px rgba(91,156,246,.15); }
+  50%      { border-color: rgba(91,156,246,.9);  color: #fff;       box-shadow: 0 0 18px rgba(91,156,246,.5); }
+}
+
+/* ════════ BOTTOM ════════ */
+.bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  padding: 12px 52px;
+  border-top: 1px solid var(--b1);
+}
+.btm-card {
+  border-radius: 10px;
+  padding: 16px 20px;
+  display: flex; gap: 14px; align-items: flex-start;
+}
+.btm-why {
+  background: rgba(167,139,250,.10);
+  border: 1px solid rgba(167,139,250,.28);
+}
+.btm-rev {
+  background: var(--blue-bg);
+  border: 1px solid var(--blue-bd);
+}
+.btm-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+.btm-lbl {
+  font-family: var(--mono);
+  font-size: 9px; font-weight: 500; letter-spacing:.18em;
+  text-transform: uppercase; margin-bottom: 6px;
+}
+.btm-why .btm-lbl { color: #c4b0ff; }
+.btm-rev .btm-lbl { color: var(--blue); }
+.btm-title { font-size: 14px; font-weight: 700; line-height: 1.4; color: var(--text); }
+.btm-sub { font-size: 12px; color: var(--sub); line-height: 1.65; margin-top: 5px; }
+
+/* ════════ VALUE PROPOSITION ════════ */
+.vp {
+  display: grid;
+  grid-template-columns: auto 1px 1fr;
+  gap: 0 28px;
+  align-items: center;
+  padding: 18px 52px;
+  border-top: 1px solid rgba(239,68,68,.35);
+  background: linear-gradient(90deg,
+    rgba(239,68,68,.16) 0%,
+    rgba(220,38,38,.10) 60%,
+    rgba(239,68,68,.06) 100%
+  );
+  animation: fadeUp .45s .38s ease both;
+}
+.vp-left {
+  display: flex; align-items: center; gap: 14px; flex-shrink: 0;
+}
+.vp-icon {
+  width: 44px; height: 44px; border-radius: 11px; flex-shrink: 0;
+  background: rgba(239,68,68,.25);
+  border: 1px solid rgba(239,68,68,.55);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 0 18px rgba(239,68,68,.30);
+}
+.vp-icon svg { width: 22px; height: 22px; }
+.vp-lbl {
+  font-family: var(--mono);
+  font-size: 9px; font-weight: 500; letter-spacing: .18em;
+  text-transform: uppercase; color: #fca5a5; margin-bottom: 6px;
+}
+.vp-text {
+  font-size: 15px; font-weight: 700; color: #fff; line-height: 1.3;
+  white-space: nowrap;
+}
+.vp-divider {
+  width: 1px; height: 56px;
+  background: rgba(239,68,68,.40);
+}
+.vp-items {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  height: 100%;
+}
+.vp-item {
+  border-radius: 10px;
+  padding: 14px 18px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.07);
+  display: flex; flex-direction: column; justify-content: center;
+  transition: background .2s;
+}
+.vp-item:hover { background: rgba(255,255,255,.12); }
+.vp-item-label {
+  font-family: var(--mono);
+  font-size: 10px; font-weight: 600; letter-spacing: .14em;
+  text-transform: uppercase; margin-bottom: 6px;
+}
+.vp-item:nth-child(1) { border-color: rgba(248,113,113,.25); background: rgba(248,113,113,.07); }
+.vp-item:nth-child(2) { border-color: rgba(251,146,60,.25);  background: rgba(251,146,60,.07); }
+.vp-item:nth-child(3) { border-color: rgba(96,165,250,.25);  background: rgba(96,165,250,.07); }
+.vp-item:nth-child(4) { border-color: rgba(52,211,153,.25);  background: rgba(52,211,153,.07); }
+.vp-item:nth-child(1) .vp-item-label { color: #f87171; }
+.vp-item:nth-child(2) .vp-item-label { color: #fb923c; }
+.vp-item:nth-child(3) .vp-item-label { color: #60a5fa; }
+.vp-item:nth-child(4) .vp-item-label { color: #34d399; }
+.vp-item-text {
+  font-size: 14px; font-weight: 700; color: #fff; line-height: 1.4;
+}
+
+/* ════════ FOOTER ════════ */
+footer {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 52px;
+  border-top: 1px solid var(--b1);
+  font-family: var(--mono);
+  font-size: 9px; color: var(--dim); letter-spacing: .08em;
+}
+
+/* ── Entrance ── */
+@keyframes fadeUp {
+  from { opacity:0; transform: translateY(10px); }
+  to   { opacity:1; transform: none; }
+}
+header  { animation: fadeUp .45s ease both; }
+.title  { animation: fadeUp .45s .08s ease both; }
+.col-l  { animation: fadeUp .5s .16s ease both; }
+.bridge { animation: fadeUp .5s .22s ease both; }
+.col-r  { animation: fadeUp .5s .16s ease both; }
+.bottom { animation: fadeUp .45s .3s  ease both; }
+footer  { animation: fadeUp .4s  .36s ease both; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">ZO<em>O</em>BA</div>
+  <div class="hd-r">新規事業提案 · Executive Summary · 2026</div>
+</header>
+
+<div class="title">
+  <h1>Palantir FDEモデル → <span>AI情シスBPO</span>として踏襲</h1>
+  <div class="title-note">同じ構造 / 同じ収益原理<br>情シス市場で実装する</div>
+</div>
+
+<div class="diagram">
+
+  <!-- PALANTIR -->
+  <div class="col col-l">
+    <div class="col-head">
+      <span class="col-tag col-tag-gold">Palantir — FDEモデル</span>
+      <span class="col-ref">参照</span>
+    </div>
+    <div class="card card-gold">
+      <span class="num num-gold">01</span>
+      <div class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="#dbb84e" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+      <div class="card-inner">
+        <div class="phase phase-gold">Entry</div>
+        <div class="card-title">FDEを顧客先に常駐派遣</div>
+      </div>
+    </div>
+    <div class="card card-gold">
+      <span class="num num-gold">02</span>
+      <div class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="#dbb84e" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+      <div class="card-inner">
+        <div class="phase phase-gold">Embed</div>
+        <div class="card-title">人事予算から工数削減分の成果報酬</div>
+      </div>
+    </div>
+    <div class="card card-gold">
+      <span class="num num-gold">03</span>
+      <div class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="#dbb84e" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+      <div class="card-inner">
+        <div class="phase phase-gold">Lock-in</div>
+        <div class="card-title">継続改善でカスタムAIを蓄積</div>
+      </div>
+    </div>
+    <div class="card card-gold">
+      <span class="num num-gold">04</span>
+      <div class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="#dbb84e" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div>
+      <div class="card-inner">
+        <div class="phase phase-gold">Extract</div>
+        <div class="card-title">SaaS＋プロサービスで継続報酬</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BRIDGE -->
+  <div class="bridge">
+    <div class="bridge-spacer"></div>
+    <div class="bridge-row"><div class="bridge-dot">→</div></div>
+    <div class="bridge-row"><div class="bridge-dot">→</div></div>
+    <div class="bridge-row"><div class="bridge-dot">→</div></div>
+    <div class="bridge-row"><div class="bridge-dot">→</div></div>
+  </div>
+
+  <!-- ZOOBA -->
+  <div class="col col-r">
+    <div class="col-head">
+      <span class="col-tag col-tag-blue">Zooba — AI情シスBPO</span>
+      <span class="col-ref">実装</span>
+    </div>
+    <div class="card card-blue">
+      <span class="num num-blue">01</span>
+      <div class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="#5b9cf6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+      <div class="card-inner">
+        <div class="phase phase-blue">FSによる課題ヒアリングと価格提案</div>
+        <div class="card-title">情シス課題の定量化・要件整理・提案</div>
+      </div>
+    </div>
+    <div class="card card-blue">
+      <span class="num num-blue">02</span>
+      <div class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="#5b9cf6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M6 8h.01M10 8h4"/></svg></div>
+      <div class="card-inner">
+        <div class="phase phase-blue">資産管理＋AIヘルプデスク導入</div>
+        <div class="card-title">要件整理＋Zooba導入</div>
+      </div>
+    </div>
+    <div class="card card-blue">
+      <span class="num num-blue">03</span>
+      <div class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="#5b9cf6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07M8.46 8.46a5 5 0 0 0 0 7.07"/></svg></div>
+      <div class="card-inner">
+        <div class="phase phase-blue">運用設計ごと握る</div>
+        <div class="card-title">AIチューニング含めたCSサポート</div>
+      </div>
+    </div>
+    <div class="card card-blue">
+      <span class="num num-blue">04</span>
+      <div class="ci"><svg viewBox="0 0 24 24" fill="none" stroke="#5b9cf6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+      <div class="card-inner">
+        <div class="phase phase-blue">人事予算から継続収益化</div>
+        <div class="card-title">削減人件費の成果報酬＋SaaS月額</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<div class="vp">
+  <div class="vp-left">
+    <div class="vp-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#fca5a5" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        <polyline points="9 12 11 14 15 10"/>
+      </svg>
+    </div>
+    <div>
+      <div class="vp-lbl">Value Proposition — なぜZoobaにしか出来ないのか</div>
+      <div class="vp-text">情シス出身のCEOが情シス特化でサービスを提供する唯一のサービス</div>
+    </div>
+  </div>
+  <div class="vp-divider"></div>
+  <div class="vp-items">
+    <div class="vp-item">
+      <div class="vp-item-label">現状</div>
+      <div class="vp-item-text">代替可能性が高い</div>
+    </div>
+    <div class="vp-item">
+      <div class="vp-item-label">影響</div>
+      <div class="vp-item-text">選定の決定打不足</div>
+    </div>
+    <div class="vp-item">
+      <div class="vp-item-label">提案</div>
+      <div class="vp-item-text">代替可能性が低い価値提供</div>
+    </div>
+    <div class="vp-item">
+      <div class="vp-item-label">結果</div>
+      <div class="vp-item-text">人事予算からの継続収益の実現</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span>Zooba Inc. — CEO向け新規事業提案</span>
+  <span>Confidential</span>
+</footer>
+
+</body>
+</html>
