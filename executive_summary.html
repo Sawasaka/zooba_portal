@@ -599,6 +599,147 @@
     letter-spacing: 0.06em;
   }
 
+  /* ── TABS ── */
+  .tab-bar {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 32px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    padding-bottom: 0;
+  }
+
+  .tab-btn {
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: var(--text-muted);
+    font-family: inherit;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    padding: 10px 20px 12px;
+    cursor: pointer;
+    margin-bottom: -1px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .tab-btn:hover { color: var(--text-secondary); }
+
+  .tab-btn.active {
+    color: var(--gold-light);
+    border-bottom-color: var(--gold);
+  }
+
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* ── empty state ── */
+  .empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px;
+    color: var(--text-muted);
+    gap: 12px;
+    text-align: center;
+  }
+
+  .empty-state svg { opacity: 0.25; }
+
+  .empty-state-title {
+    font-size: 15px;
+    color: var(--text-secondary);
+  }
+
+  .empty-state-sub {
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  /* ── monthly summary (全体 tab) ── */
+  .monthly-row {
+    display: grid;
+    grid-template-columns: 120px 1fr 1fr 1fr 1fr;
+    align-items: center;
+    gap: 0;
+    padding: 16px 20px;
+    background: var(--navy-card);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 6px;
+    margin-bottom: 8px;
+    transition: background 0.2s;
+  }
+
+  .monthly-row:hover { background: var(--navy-light); }
+
+  .monthly-row.header-row {
+    background: transparent;
+    border-color: transparent;
+    padding: 6px 20px;
+  }
+
+  .monthly-row.header-row div {
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+  }
+
+  .month-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .month-badge {
+    display: inline-block;
+    font-size: 9px;
+    background: var(--gold-dim);
+    border: 1px solid var(--gold-border);
+    color: var(--gold);
+    padding: 2px 8px;
+    border-radius: 2px;
+    letter-spacing: 0.1em;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+
+  .month-stat {
+    font-family: 'Hiragino Mincho ProN', 'Yu Mincho', serif;
+    font-size: 24px;
+    font-weight: 300;
+    color: var(--gold-light);
+  }
+
+  .month-stat span {
+    font-family: 'Hiragino Sans', sans-serif;
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-left: 2px;
+  }
+
+  .month-stat.empty {
+    font-family: 'Hiragino Sans', sans-serif;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  .month-bar-wrap {
+    height: 6px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 3px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 120px;
+  }
+
+  .month-bar-fill {
+    height: 100%;
+    background: var(--gold);
+    border-radius: 3px;
+    transition: width 0.8s cubic-bezier(0.4,0,0.2,1);
+  }
+
   /* ── ANIMATIONS ── */
   @keyframes pipeIn {
     from { opacity: 0; transform: scaleX(0.92); }
@@ -674,6 +815,42 @@
       対象フェーズ：<span>プロジェクト化予定あり・初回商談済み</span>
     </div>
   </header>
+
+  <!-- TAB BAR -->
+  <div class="tab-bar">
+    <button class="tab-btn active" data-tab="all">全体</button>
+    <button class="tab-btn" data-tab="mar">2026年3月</button>
+    <button class="tab-btn" data-tab="apr">2026年4月</button>
+  </div>
+
+  <!-- ===== 全体 TAB ===== -->
+  <div id="tab-all" class="tab-panel active">
+    <div class="section-label">Monthly Overview</div>
+    <div class="monthly-row header-row">
+      <div>期間</div>
+      <div>有効商談数</div>
+      <div>フェーズ昇格</div>
+      <div>POC確定</div>
+      <div>進捗</div>
+    </div>
+    <div class="monthly-row">
+      <div class="month-label">2026年3月<span class="month-badge">最新</span></div>
+      <div class="month-stat">7<span>社</span></div>
+      <div class="month-stat">7<span>社</span></div>
+      <div class="month-stat">1<span>社</span></div>
+      <div><div class="month-bar-wrap"><div class="month-bar-fill" style="width:100%"></div></div></div>
+    </div>
+    <div class="monthly-row">
+      <div class="month-label">2026年4月</div>
+      <div class="month-stat empty">—</div>
+      <div class="month-stat empty">—</div>
+      <div class="month-stat empty">—</div>
+      <div><div class="month-bar-wrap"><div class="month-bar-fill" style="width:0%"></div></div></div>
+    </div>
+  </div>
+
+  <!-- ===== 3月 TAB ===== -->
+  <div id="tab-mar" class="tab-panel">
 
   <!-- KPI FLOW -->
   <div class="section-label">Key Performance Indicators</div>
@@ -851,6 +1028,21 @@
     </div>
   </div>
 
+  </div><!-- /tab-mar -->
+
+  <!-- ===== 4月 TAB ===== -->
+  <div id="tab-apr" class="tab-panel">
+    <div class="empty-state">
+      <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+        <rect x="8" y="12" width="32" height="28" rx="3" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M16 8v8M32 8v8M8 22h32" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M18 32h12M22 28h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <div class="empty-state-title">2026年4月 — データ未登録</div>
+      <div class="empty-state-sub">4月分のレポートが追加されると、ここに表示されます。</div>
+    </div>
+  </div><!-- /tab-apr -->
+
   <!-- FOOTER -->
   <footer>
     <div class="footer-brand"><span>zooba</span> &nbsp;|&nbsp; 商談パイプラインレポート Phase 03</div>
@@ -877,11 +1069,22 @@
     }, 16);
   }
 
+  // Tab switching
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+    });
+  });
+
   window.addEventListener('load', () => {
     setTimeout(() => {
-      animateCount(document.getElementById('kpi1'), 7, 800);
-      animateCount(document.getElementById('kpi2'), 7, 800);
-      animateCount(document.getElementById('kpi3'), 1, 500);
+      document.querySelectorAll('.kpi-value').forEach(el => {
+        const num = parseInt(el.textContent);
+        if (!isNaN(num)) animateCount(el, num, num === 1 ? 500 : 800);
+      });
     }, 300);
   });
 </script>
