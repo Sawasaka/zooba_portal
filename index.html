@@ -368,6 +368,26 @@
   .kpi-card:nth-child(5) .tooltip-row { border-color: rgba(91,141,184,0.5); color: #5B8DB8; }
   .kpi-card:nth-child(7) .tooltip-row { border-color: rgba(46,204,113,0.5); color: #2ECC71; }
 
+  /* 移行率 */
+  .kpi-rate {
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+  }
+  .kpi-rate strong {
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
   /* 認定条件 */
   .kpi-cond {
     margin-top: 10px;
@@ -1082,6 +1102,7 @@
         <div class="kpi-label" style="color:var(--gold);font-weight:700;font-size:11px;">有効商談数</div>
         <div class="kpi-value">7<span>社</span></div>
         <div class="kpi-cond"><div class="kpi-cond-title">認定条件</div>担当部門 / 課題検討中 / 時期感あり<br>2回目アポ or トライアル意向</div>
+        <div class="kpi-rate">最終転換率 <strong style="color:var(--gold)">14%</strong></div>
       </div>
       <div class="kpi-arrow">
         <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M6 14h16M16 8l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -1092,6 +1113,7 @@
         <div class="kpi-value" style="color:#85C1E9;">7<span>社</span></div>
         <div class="kpi-sub">今期 Phase 2 からの昇格件数</div>
         <div class="kpi-cond"><div class="kpi-cond-title">認定条件</div>2回目以降のアポ確定<br>or トライアル意向あり</div>
+        <div class="kpi-rate">移行率 <strong style="color:#85C1E9">100%</strong></div>
         <div class="kpi-tooltip">
           <div class="tooltip-label">対象企業 — 3社</div>
           <div class="tooltip-row">ポールトゥウィン株式会社</div>
@@ -1108,6 +1130,7 @@
         <div class="kpi-value" style="color:#5B8DB8;">4<span>社</span></div>
         <div class="kpi-sub">PJ可能案件（社内障壁クリア）</div>
         <div class="kpi-cond"><div class="kpi-cond-title">認定条件</div>上長の社内推進<br>及び 社内障壁のクリア</div>
+        <div class="kpi-rate">移行率 <strong style="color:#5B8DB8">57%</strong></div>
         <div class="kpi-tooltip">
           <div class="tooltip-label">対象企業 — 3社</div>
           <div class="tooltip-row">フォーティエンスコンサルティング株式会社</div>
@@ -1124,6 +1147,7 @@
         <div class="kpi-value" style="color:#2ECC71;">1<span>社</span></div>
         <div class="kpi-sub">POC / 2回目商談以降 到達件数</div>
         <div class="kpi-cond"><div class="kpi-cond-title">認定条件</div>POC実施確定<br>or 2回目商談以降に移行</div>
+        <div class="kpi-rate">移行率 <strong style="color:#2ECC71">25%</strong></div>
         <div class="kpi-tooltip">
           <div class="tooltip-label">対象企業</div>
           <div class="tooltip-row">フューチャーセキュアウェイブ株式会社</div>
@@ -1162,6 +1186,7 @@
       <div class="kpi-value">7<span>社</span></div>
       <div class="kpi-sub">フェーズ03 認定済み商談の総数</div>
       <div class="kpi-cond"><div class="kpi-cond-title">認定条件</div>担当部門 / 課題検討中 / 時期感あり<br>2回目アポ or トライアル意向</div>
+        <div class="kpi-rate">最終転換率 <strong style="color:var(--gold)">14%</strong></div>
     </div>
 
     <div class="kpi-arrow">
@@ -1176,6 +1201,7 @@
       <div class="kpi-value" style="color:#85C1E9;">7<span>社</span></div>
       <div class="kpi-sub">今期 Phase 2 からの昇格件数</div>
       <div class="kpi-cond"><div class="kpi-cond-title">認定条件</div>2回目以降のアポ確定<br>or トライアル意向あり</div>
+        <div class="kpi-rate">移行率 <strong style="color:#85C1E9">100%</strong></div>
       <div class="kpi-tooltip">
         <div class="tooltip-label">対象企業 — 3社</div>
         <div class="tooltip-row">ポールトゥウィン株式会社</div>
@@ -1196,6 +1222,7 @@
       <div class="kpi-value" style="color:#5B8DB8;">4<span>社</span></div>
       <div class="kpi-sub">PJ可能案件（社内障壁クリア）</div>
       <div class="kpi-cond"><div class="kpi-cond-title">認定条件</div>上長の社内推進<br>及び 社内障壁のクリア</div>
+        <div class="kpi-rate">移行率 <strong style="color:#5B8DB8">57%</strong></div>
       <div class="kpi-tooltip">
         <div class="tooltip-label">対象企業 — 3社</div>
         <div class="tooltip-row">フォーティエンスコンサルティング株式会社</div>
@@ -1216,6 +1243,7 @@
       <div class="kpi-value" style="color:#2ECC71;">1<span>社</span></div>
       <div class="kpi-sub">POC / 2回目商談以降 到達件数</div>
       <div class="kpi-cond"><div class="kpi-cond-title">認定条件</div>POC実施確定<br>or 2回目商談以降に移行</div>
+        <div class="kpi-rate">移行率 <strong style="color:#2ECC71">25%</strong></div>
       <div class="kpi-tooltip">
         <div class="tooltip-label">対象企業</div>
         <div class="tooltip-row">フューチャーセキュアウェイブ株式会社</div>
