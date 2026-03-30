@@ -29,8 +29,15 @@ body { font-family: 'Hiragino Sans', 'Meiryo', 'Yu Gothic UI', sans-serif; backg
 #sidebar {
   width: 240px; min-width: 240px; background: var(--sidebar-bg); color: var(--sidebar-text);
   position: fixed; top: 0; left: 0; height: 100vh; overflow-y: auto; z-index: 100;
-  display: flex; flex-direction: column;
+  display: flex; flex-direction: column; transition: width 0.25s ease, min-width 0.25s ease;
 }
+#sidebar.collapsed { width: 0; min-width: 0; overflow: hidden; }
+.sidebar-toggle {
+  width: 36px; height: 36px; background: transparent; border: none; border-radius: 6px;
+  color: var(--text-muted); cursor: pointer; display: flex; align-items: center; justify-content: center;
+  font-size: 18px; flex-shrink: 0; transition: background 0.15s;
+}
+.sidebar-toggle:hover { background: var(--bg); }
 .sidebar-logo {
   padding: 20px 20px 16px; border-bottom: 1px solid rgba(255,255,255,0.08);
   font-size: 18px; font-weight: 700; color: #fff; letter-spacing: 0.5px;
@@ -50,7 +57,8 @@ body { font-family: 'Hiragino Sans', 'Meiryo', 'Yu Gothic UI', sans-serif; backg
 .sidebar-badge { margin-left: auto; background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.7); font-size: 10px; padding: 1px 7px; border-radius: 10px; }
 
 /* Main */
-#main { margin-left: 240px; flex: 1; min-height: 100vh; display: flex; flex-direction: column; }
+#main { margin-left: 240px; flex: 1; min-height: 100vh; display: flex; flex-direction: column; transition: margin-left 0.25s ease; }
+#main.expanded { margin-left: 0; }
 .topbar {
   position: sticky; top: 0; z-index: 50; background: #fff; border-bottom: 1px solid var(--border);
   padding: 0 28px; height: 56px; display: flex; align-items: center; gap: 16px; box-shadow: 0 1px 4px rgba(0,0,0,0.08);
@@ -227,8 +235,8 @@ body { font-family: 'Hiragino Sans', 'Meiryo', 'Yu Gothic UI', sans-serif; backg
 
 /* Responsive */
 @media (max-width: 900px) {
-  #sidebar { width: 200px; min-width: 200px; }
-  #main { margin-left: 200px; }
+  #sidebar:not(.collapsed) { width: 200px; min-width: 200px; }
+  #main:not(.expanded) { margin-left: 200px; }
 }
 </style>
 </head>
@@ -283,6 +291,7 @@ body { font-family: 'Hiragino Sans', 'Meiryo', 'Yu Gothic UI', sans-serif; backg
 
 <div id="main">
   <div class="topbar">
+    <button class="sidebar-toggle" id="sidebar-toggle" onclick="toggleSidebar()" title="サイドバーを開閉">☰</button>
     <div id="topbar-title" class="topbar-title">FAQ</div>
     <span id="topbar-badge" class="topbar-badge">159件</span>
   </div>
@@ -1089,6 +1098,17 @@ function filterIssues() {
     const text = item.getAttribute('data-search').toLowerCase();
     item.style.display = (!q || text.includes(q)) ? '' : 'none';
   });
+}
+
+// Sidebar toggle
+function toggleSidebar() {
+  const sidebar = document.getElementById('sidebar');
+  const main = document.getElementById('main');
+  const btn = document.getElementById('sidebar-toggle');
+  sidebar.classList.toggle('collapsed');
+  main.classList.toggle('expanded');
+  btn.classList.toggle('collapsed');
+  btn.textContent = sidebar.classList.contains('collapsed') ? '☰' : '✕';
 }
 
 // Init
