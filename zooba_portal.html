@@ -2359,8 +2359,27 @@ function updateITAMProgress() {
 document.addEventListener('DOMContentLoaded', loadITAMCheck);
 
 function showSection(id, el) {
+  // 孤立セクション（body直下）を #main 内に移動して正しい位置に表示する
+  const orphanedIds = ['itam_setup', 'operations', 'training', 'rag'];
+  const main = document.getElementById('main');
+
+  // 以前 #main に移動した孤立セクションを body に戻す
+  orphanedIds.forEach(function(oid) {
+    const s = document.getElementById('section-' + oid);
+    if (s && s.parentElement === main) {
+      document.body.appendChild(s);
+    }
+  });
+
   document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
   document.querySelectorAll('.sidebar-item').forEach(s => s.classList.remove('active'));
+
+  // 孤立セクションを表示する場合は #main 内に移動する
+  if (orphanedIds.includes(id)) {
+    const s = document.getElementById('section-' + id);
+    main.appendChild(s);
+  }
+
   document.getElementById('section-' + id).classList.add('active');
   if (el) el.classList.add('active');
   const meta = sectionMeta[id] || {};
