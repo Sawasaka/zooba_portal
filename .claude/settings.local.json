@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git --version)",
+      "Bash(mdfind -name ヘルプセンター -name 更新記事)",
+      "Bash(mdfind \"kMDItemDisplayName == ''''*ヘルプセンター*''''\")",
+      "Bash(mdfind 'Zooba ヘルプセンター 最近の更新記事')",
+      "mcp__Claude_Preview__preview_start",
+      "Read(//Users/hirokisawasaka/Dropbox/My Mac \\(sawasakahirokinoMacBook-Air.local\\)/Downloads/**)",
+      "Read(//Users/hirokisawasaka/**)",
+      "Read(//Applications/**)",
+      "Bash(\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless --disable-gpu --print-to-pdf=\"/Users/hirokisawasaka/Dropbox/My Mac \\(sawasakahirokinoMacBook-Air.local\\)/Downloads/開発PJ/【zooba】/zoobaナレッジ一覧/ai_premise_policy_examples.pdf\" --no-margins \"/Users/hirokisawasaka/Dropbox/My Mac \\(sawasakahirokinoMacBook-Air.local\\)/Downloads/開発PJ/【zooba】/zoobaナレッジ一覧/ai_premise_policy_examples.html\")"
+    ]
+  }
+}
